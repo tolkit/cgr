@@ -60,9 +60,11 @@ fn main() {
             let data_file_name = format!("{}", record.id());
             write(&data_file_name, cgr.clone())
                 .unwrap_or_else(|_| println!("[-]\tError in writing to file."));
+            println!("{}.tsv written to file", record.id());
         }
         // save the PNG
         let file_name = format!("./cgr_out/images/{}.png", record.id());
         plot(cgr, &file_name, dim).expect("File did not write :(");
+        println!("{}.png written to file", record.id());
     }
 }

@@ -8,7 +8,16 @@ E.g.
 
 <img src="./CGR_explanation.png">
 
+This is an example from a chromosome of *Xestia xanthographa*:
+
+<img src="./SUPER_7.png">
+
+And the mitochondrion from the same species:
+
+<img src=".scaffold_MT.png">
+
 For now, plots are output to PNG for speed, however I may try and implement something interactive in JS.
+
 
 ## Usage
 
