@@ -14,7 +14,7 @@ This is an example from a chromosome of *Xestia xanthographa*:
 
 And the mitochondrion from the same species:
 
-<img src=".scaffold_MT.png">
+<img src="./scaffold_MT.png">
 
 For now, plots are output to PNG for speed, however I may try and implement something interactive in JS.
 
