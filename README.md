@@ -2,7 +2,7 @@
 
 ## Theory
 
-CGR is a way of visualising strings into a scatterplot, with each recursive quadrant of the square represeting different substrings.
+CGR is a way of visualising strings into a scatterplot, with each recursive quadrant of the square represeting different substrings, see below [1].
 
 E.g.
 
@@ -35,3 +35,5 @@ OPTIONS:
     -s, --save <save>      Should the matrix coordinates be saved? Warning: these files can be very large, and take a
                            while to write. [default: false]  [possible values: true, false]
 ```
+
+[1] Goldman, Nick. "Nucleotide, dinucleotide and trinucleotide frequencies explain patterns observed in chaos game representations of DNA sequences." *Nucleic Acids Research* 21.10 (1993): 2487-2491.
