@@ -52,6 +52,7 @@ fn main() {
     // parse command line options
     let input_fasta = matches.value_of("fasta").unwrap();
     let save = value_t!(matches.value_of("save"), bool).unwrap_or_else(|e| e.exit());
+    // TODO; if plot is huge... grid lines a bit rubbish...
     let grid = value_t!(matches.value_of("grid"), bool).unwrap_or_else(|e| e.exit());
     let order = value_t!(matches.value_of("order"), f64).unwrap_or_else(|e| e.exit());
 
@@ -70,7 +71,7 @@ fn main() {
     for result in reader.records() {
         let record = result.expect("[-]\tError during fasta record parsing.");
         // get length for dim calculation
-        // must be a better and more clever way to get the best dims.
+        // must be a better way to get the best dimensions.
         let len = record.seq().len() as f64;
         let dim = (len.sqrt().round() + 250.0) as u32;
 
@@ -81,11 +82,11 @@ fn main() {
             let data_file_name = format!("{}", record.id());
             write(&data_file_name, cgr.clone())
                 .unwrap_or_else(|_| println!("[-]\tError in writing to file."));
-            println!("{}.tsv written to file", record.id());
+            println!("[+]\t{}.tsv written to file", record.id());
         }
         // save the PNG
         let file_name = format!("./cgr_out/images/{}.png", record.id());
         plot(cgr, &file_name, dim, grid, order).expect("File did not write :(");
-        println!("{}.png written to file", record.id());
+        println!("[+]\t{}.png written to file", record.id());
     }
 }

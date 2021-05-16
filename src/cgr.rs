@@ -28,9 +28,6 @@ pub mod cgr {
 
         for base in dna {
             match base {
-                78 | 110 => {
-                    continue;
-                }
                 71 | 103 => {
                     let xlast = x.last().unwrap_or(&0f64);
                     let ylast = y.last().unwrap_or(&0f64);
