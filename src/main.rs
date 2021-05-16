@@ -29,10 +29,31 @@ fn main() {
                 .default_value("false")
                 .help("Should the matrix coordinates be saved? Warning: these files can be very large, and take a while to write."),
         )
+        .arg(
+            Arg::with_name("grid")
+                .short("g")
+                .long("grid")
+                .takes_value(true)
+                .possible_values(&["true", "false"])
+                .required(false)
+                .default_value("false")
+                .help("Should the matrix be overlayed with a grid?"),
+        )
+        .arg(
+            Arg::with_name("order")
+                .short("o")
+                .long("order")
+                .takes_value(true)
+                .required_if("grid", "true")
+                .default_value("2")
+                .help("Should the matrix be overlayed with a grid?"),
+        )
         .get_matches();
     // parse command line options
     let input_fasta = matches.value_of("fasta").unwrap();
     let save = value_t!(matches.value_of("save"), bool).unwrap_or_else(|e| e.exit());
+    let grid = value_t!(matches.value_of("grid"), bool).unwrap_or_else(|e| e.exit());
+    let order = value_t!(matches.value_of("order"), f64).unwrap_or_else(|e| e.exit());
 
     // create some sub-folders for output
     if save {
@@ -64,7 +85,7 @@ fn main() {
         }
         // save the PNG
         let file_name = format!("./cgr_out/images/{}.png", record.id());
-        plot(cgr, &file_name, dim).expect("File did not write :(");
+        plot(cgr, &file_name, dim, grid, order).expect("File did not write :(");
         println!("{}.png written to file", record.id());
     }
 }
