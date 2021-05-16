@@ -42,7 +42,7 @@ FLAGS:
 OPTIONS:
     -f, --fasta <fasta>    The fasta file
     -g, --grid <grid>      Should the matrix be overlayed with a grid? [default: false]  [possible values: true, false]
-    -o, --order <order>    Should the matrix be overlayed with a grid? [default: 2]
+    -o, --order <order>    Order of the grid lattice. [default: 2]
     -s, --save <save>      Should the matrix coordinates be saved? Warning: these files can be very large, and take a
                            while to write. [default: false]  [possible values: true, false]
 ```
