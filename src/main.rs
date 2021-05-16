@@ -46,7 +46,7 @@ fn main() {
                 .takes_value(true)
                 .required_if("grid", "true")
                 .default_value("2")
-                .help("Should the matrix be overlayed with a grid?"),
+                .help("Order of the grid lattice."),
         )
         .get_matches();
     // parse command line options
